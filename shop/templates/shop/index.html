@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Start Hero Section -->
+<div class="hero bg-dark">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>Современный подход <span clsas="d-block">к качественной печати</span></h1>
+                    <p class="mb-4">Оказываем широкий спектр услуг, с помощью современных технологий, по доступным ценам.</p>
+                    <p><a href="/shop" class="btn btn-secondary me-2">Выбор услуг</a></p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="hero-img-wrap">
+                    <img src="{% static 'images/printer.png' %}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Section -->
+
+
+<!-- Start Why Choose Us Section -->
+<div class="why-choose-section">
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="col-lg-6">
+            <h2 class="section-title">Почему выбирают нас</h2>
+
+            <div class="row my-5">
+                <div class="col-6 col-md-6">
+                    <div class="feature">
+                        <div class="icon">
+                            <img src="{% static "images/star.svg" %}"alt="Image" class="imf-fluid">
+                        </div>
+                        <h3>Высокое качество печати:</h3>
+                        <p>Мы обеспечиваем отличное качество печати благодаря использованию современных технологий и оборудования.</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-6">
+                    <div class="feature">
+                        <div class="icon">
+                            <img src="{% static "images/bag.svg" %}"alt="Image" class="imf-fluid">
+                        </div>
+                        <h3>Широкий ассортимент продукции</h3>
+                        <p>Предлагаем разнообразные виды печатной продукции, такие как визитки, буклеты, каталоги, плакаты, календари и многое другое.</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-6">
+                    <div class="feature">
+                        <div class="icon">
+                            <img src="{% static "images/support.svg" %}"alt="Image" class="imf-fluid">
+                        </div>
+                        <h3>Использование различных материалов:</h3>
+                        <p>Наша типография может работать с разными видами бумаги и других материалов, что позволяет выбирать оптимальные варианты для конкретных задач.</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-6">
+                    <div class="feature">
+                        <div class="icon">
+                            <img src="{% static "images/speed.svg" %}"alt="Image" class="imf-fluid">
+                        </div>
+                        <h3>Скорость и эффективность</h3>
+                        <p> Типография оснащена высокоскоростным оборудованием, что позволяет быстро и эффективно выполнять заказы.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="img-wrap">
+                <img src="{% static "images/women.jpg" %}" alt="Image" class="img-fluid">
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<!-- End Why Choose Us Section -->
+
+
+{% endblock %}

@@ -74,29 +74,30 @@
               </div>
             </div>
 
-            <form>
+            <form method="POST" action="add_support/">
+              {% csrf_token %}
               <div class="row">
                 <div class="col-6">
                   <div class="form-group">
-                    <label class="text-black" for="fname">Имя</label>
-                    <input type="text" class="form-control" id="fname">
+                    <label class="text-black" for="name">Имя</label>
+                    <input type="text" name="name" class="form-control" id="name">
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group">
-                    <label class="text-black" for="lname">Фамилия</label>
-                    <input type="text" class="form-control" id="lname">
+                    <label class="text-black" for="surname">Фамилия</label>
+                    <input type="text" name="surname" class="form-control" id="surname">
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <label class="text-black" for="email">Электронная почта</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" name="email" class="form-control" id="email">
               </div>
 
               <div class="form-group mb-5">
                 <label class="text-black" for="message">Сообщение</label>
-                <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
+                <textarea name="message" class="form-control" id="message" cols="30" rows="5"></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary-hover-outline">Отправить</button>

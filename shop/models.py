@@ -8,6 +8,7 @@ class Product(models.Model):
     FORMAT_CHOICES = [
         ('A3', 'A3'),
         ('A4', 'A4'),
+        ('A5', 'A5'),
     ]
     format = models.CharField(max_length=3, choices=FORMAT_CHOICES)
     COLORED_CHOICES = [
@@ -67,6 +68,7 @@ class Cart(models.Model):
             return 'Цветное'
 class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
+    product_name = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     format = models.CharField(max_length=100)
     colored = models.CharField(max_length=100)
@@ -90,3 +92,13 @@ class Order(models.Model):
 
     def get_total_cost(self):
         return self.amount * self.cost
+    
+class Notification(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+
+class Support(models.Model):
+    name = models.CharField(max_length=100)
+    surname = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()

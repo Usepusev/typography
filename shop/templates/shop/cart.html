@@ -76,13 +76,16 @@
                       <span class="text-black">Сумма</span>
                     </div>
                     <div class="col-md-6 text-right">
-                      <strong class="text-black">$230.00</strong>
+                      <strong class="text-black">{{ total_cost }}₽</strong>
                     </div>
                   </div>
     
                   <div class="row">
                     <div class="col-md-12">
-                      <button class="btn btn-black text-white btn-lg py-3 btn-block bg-dark" onclick="window.location='/thankyou'">Подтвердить заказ</button>
+                      <form action="create_order/" method="post">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-black text-white btn-lg py-3 btn-block bg-dark">Подтвердить заказ</button>
+                      </form>
                     </div>
                   </div>
                 </div>

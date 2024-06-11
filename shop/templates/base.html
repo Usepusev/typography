@@ -33,7 +33,7 @@
 						<li class="nav-item ">
 							<a class="nav-link" href="/">Главная</a>
 						</li>
-						<li class="active"><a class="nav-link" href="/shop">Услуги</a></li>
+						<li><a class="nav-link" href="/shop">Услуги</a></li>
 						<li><a class="nav-link" href="/prices">Цены</a></li>
 					</ul>
 
@@ -66,16 +66,17 @@
 						<div class="subscription-form">
 							<h3 class="d-flex align-items-center"><span class="me-1"></span><span>Подпишитесь на рассылку</span></h3>
 
-							<form action="#" class="row g-3">
+							<form method="POST" action="add_notification/" class="row g-3">
+								{% csrf_token %}
 								<div class="col-auto">
-									<input type="text" class="form-control" placeholder="Имя">
+									<input type="text" name="name" class="form-control" placeholder="Имя">
 								</div>
 								<div class="col-auto">
-									<input type="email" class="form-control" placeholder="Электронная почта">
+									<input type="email" name="email" class="form-control" placeholder="Электронная почта">
 								</div>
 								<div class="col-auto">
-									<button class="btn btn-primary">
-										<span class="fa fa-paper-plane"></span>
+									<button class="btn btn-primary bg-dark">
+										<span class="fa fa-paper-plane bg-dark"></span>
 									</button>
 								</div>
 							</form>

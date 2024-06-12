@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Order, Cart, Notification, Support
+from .models import Product, Order, Cart, Notification, Support, Bill
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -33,3 +33,7 @@ class NotificationAdmin(admin.ModelAdmin):
 class SupportAdmin(admin.ModelAdmin):
     list_display = ('name', 'surname', 'email', 'message')
     ordering = ('name', 'surname', 'email')
+
+@admin.register(Bill)
+class BillAdmin(admin.ModelAdmin):
+    list_display = ('bill_id' ,'user')

@@ -21,6 +21,7 @@
     <div class="untree_co-section before-footer-section">
         <div class="container">
           <div class="row mb-5">
+            <h1>Заказы</h1>
             <form class="col-md-12" method="post">
               <div class="site-blocks-table">
                 <table class="table">
@@ -56,7 +57,34 @@
               </div>
             </form>
           </div>
-
+          <div class="container">
+            <div class="row mb-5">
+              <h1>Чеки</h1>
+              <form class="col-md-12" method="post">
+                <div class="site-blocks-table">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="bill-id">Номер чека</th>
+                        <th class="bill-date">Дата</th>
+                        <th class="bill-file">Чек</th>
+                        <th class="bill-status">Статус</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for bill in bill_items %}
+                      <tr>
+                        <td class="bill-name">{{ bill.bill_id }}</td>
+                        <td class="bill-name">{{ bill.created_at }}</td>                        
+                        <td><a href="{{ bill.file }}">Чек</a></td>
+                        <td>{{bill.billstatus}}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+            </div>
     
     </div>
     {% endblock %}

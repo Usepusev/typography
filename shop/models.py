@@ -113,8 +113,18 @@ class Bill(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     file = models.FileField(upload_to='bills/')
     created_at = models.DateTimeField(auto_now_add=True)
-    order = models.ManyToManyField('Order')
+    order = models.ManyToManyField('Order', related_name='bills')
     status = models.CharField(max_length=20, default='new')
+    @property
+    def billstatus(self):
+        if self.status == 'new':
+            return 'Новый, ожидает оплаты'
+        elif self.status == 'in_progress':
+            return 'В процессе'
+        elif self.status == 'completed':
+            return 'Выполнен'
+        elif self.status == 'cancelled':
+            return 'Отменён'
 class Notification(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()

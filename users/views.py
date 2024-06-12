@@ -4,7 +4,7 @@ from django.urls import reverse
 from .forms import LoginForm, RegistrationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from shop.models import Order
+from shop.models import Order, Bill
 
 def login_user(request):
     if request.method == 'POST':
@@ -32,7 +32,8 @@ def logout_user(request):
 
 def profile(request):
     order_items = Order.objects.filter(user=request.user)
-    return render(request, 'users/profile.html', {'order_items': order_items})
+    bill_items = Bill.objects.filter(user=request.user)
+    return render(request, 'users/profile.html', {'order_items': order_items, 'bill_items': bill_items})
 
 def registration(request):
     if request.method == 'POST':

@@ -124,7 +124,7 @@ def create_order(request):
     
     # Создание чека
     bill = Bill.objects.create(user=request.user)
-    bill.order.set(orders)
+    bill.order.add(*orders)
     bill.save()
 
     # Создание PDF чека

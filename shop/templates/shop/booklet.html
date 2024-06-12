@@ -28,16 +28,20 @@
                           </li>
                       </ul>
 
-                      <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                          <div class="row pb-3">
-                              <div class="col d-grid"></div>
-                              <div class="col d-grid">
-                                  <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Добавить в корзину</button>
-                              </div>
-                          </div>
-                      </form>
+                      {% if request.user.is_authenticated %}
+                        <form method="post" enctype="multipart/form-data" id="myForm">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="row pb-3">
+                                <div class="col d-grid"></div>
+                                <div class="col d-grid">
+                                    <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Добавить в корзину</button>
+                                </div>
+                            </div>
+                        </form>
+                        {% else %}
+                        <p>Необходимо выполнить вход для добавления в корзину!</p>
+                        {% endif %}
 
                   </div>
               </div>

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Start Hero Section -->
+        <div class="hero bg-dark">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-5">
+                        <div class="intro-excerpt">
+                            <h1>Профиль</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- End Hero Section -->
+    <div class="untree_co-section before-footer-section">
+        <div class="container">
+          <div class="row mb-5">
+            <form class="col-md-12" method="post">
+              <div class="site-blocks-table">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="product-name">Услуга</th>
+                      <th class="product-format">Формат</th>
+                      <th class="product-color">Цвет</th>
+                      <th class="product-sides">Стороны</th>
+                      <th class="product-type">Тип бумаги</th>
+                      <th class="product-quantity">Количество</th>
+                      <th class="product-total">Стоимость</th>
+                      <th class="product-file">Файл</th>
+                      <th class="product-status">Статус</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for order in order_items %}
+                    <tr>
+                      <td class="product-name">{{ order.product_name }}</td>
+                      <td class="product-format">{{ order.format }}</td>
+                      <td class="product-color">{{ order.color }}</td>
+                      <td>{{ order.sides }}</td>
+                      <td>{{ order.paper_type }}</td>
+                      <td>{{ order.amount }}</td>
+                      <td>{{ order.cost }}</td>
+                      <td><a href="{{ order.file.url }}">🗎</a></td>
+                      <td>{{order.status}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </form>
+          </div>
+
+    
+    </div>
+    {% endblock %}

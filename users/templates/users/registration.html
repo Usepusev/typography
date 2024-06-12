@@ -1,11 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Регистрация</h1>
-<form method="post">
-    {% csrf_token %}
-    <input type="hidden" name="next" value ="{{ next }}">
-    {{ form.as_p }}
-    <p><button type="submit">Регистрация</button></p>
-</form>
 
+<section class="p-4 justify-content-center pb-4">
+  <div class="justify-content-center">
+  <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a
+          class="nav-link text-dark"
+          id="tab-login"
+          data-mdb-pill-init
+          href="/users/login"
+          role="tab"
+          aria-controls="pills-login"
+          aria-selected="false"
+          >Вход</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a
+          class="nav-link active bg-dark"
+          id="tab-register"
+          data-mdb-pill-init
+          href="/users/registration"
+          role="tab"
+          aria-controls="pills-register"
+          aria-selected="true"
+          >Регистрация</a>
+      </li>
+    </ul>
+    <!-- Pills navs -->
+
+
+  <form method="post">
+      {% csrf_token %}
+      <div class="form">
+          <div id="registration-page" class="container open">
+              <div class="form-set">
+                    {{ form.as_p }}
+                  <p><button class="btn btn-primary btn-block mb-4 mt-2" type="submit">Зарегистрироваться</button></p>
+              </div>
+  </form>
+</div></section>
 {% endblock %}

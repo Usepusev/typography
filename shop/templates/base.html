@@ -38,8 +38,20 @@
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="/users/login"><img src="{% static "images/user.svg" %}"></a></li>
-						<li><a class="nav-link" href="/cart"><img src="{% static "images/cart.svg" %}"></a></li>
+						<li><a class="nav-link" href="
+							{% if not request.user.is_authenticated %}
+								/users/login
+								{% else %}
+								/users/profile
+								{% endif %}
+							"><img src="{% static "images/user.svg" %}"></a></li>
+						<li><a class="nav-link" href="
+							{% if not request.user.is_authenticated %}
+								/users/login
+								{% else %}
+								/cart
+								{% endif %}
+								"><img src="{% static "images/cart.svg" %}"></a></li>
 					</ul>
 				</div>
 			</div>
@@ -66,11 +78,10 @@
 						<div class="subscription-form">
 							<h3 class="d-flex align-items-center"><span class="me-1"></span><span>Подпишитесь на рассылку</span></h3>
 
-							<form method="POST" action="add_notification/" class="row g-3">
+							<form method="POST" action="add_notification" id"subscription-form" class="row g-3">
 								{% csrf_token %}
 								<div class="col-auto">
-									<input type="text" name="name" class="form-control" placeholder="Имя">
-								</div>
+									<input type="text" name="name" class="form-control" placeholder="Имя"></div>
 								<div class="col-auto">
 									<input type="email" name="email" class="form-control" placeholder="Электронная почта">
 								</div>
@@ -79,6 +90,7 @@
 										<span class="fa fa-paper-plane bg-dark"></span>
 									</button>
 								</div>
+								<div id="subscription-message"></div>
 							</form>
 
 						</div>
@@ -95,7 +107,7 @@
 						<div class="row links-wrap">
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="#">О нас</a></li>
+									<li><a href="https://agp.edu.ru/">Сайт Академии</a></li>
 									<li><a href="/shop">Услуги</a></li>
 									<li><a href="/contact">Обратная связь</a></li>
 								</ul>
@@ -119,5 +131,7 @@
 		<script src=" {% static 'js/custom.js' %} "></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="{% static 'js/cart.js' %}"></script>
+		<script src="{% static 'js/subscription.js' %}"></script>
+		<script src="{% static 'js/loadform.js' %}"></script>
 </body>
 </html>

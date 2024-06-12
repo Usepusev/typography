@@ -2,18 +2,22 @@ from django import forms
 from django.contrib.auth import get_user_model
 class LoginForm(forms.Form):
     username = forms.CharField(label='Логин', 
-                               widget=forms.TextInput(attrs={'class': 'form-input'}))
+                               widget=forms.TextInput(attrs={'class': 'form-control'}))
     password = forms.CharField(label='Пароль', 
-                               widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+                               widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     
 class RegistrationForm(forms.ModelForm):
-    username = forms.CharField(label='Логин',)
+    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-control'}))
     password = forms.CharField(label='Пароль', 
-                               widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+                               widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     confirm_password = forms.CharField(label='Повторите пароль', 
-                               widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+                               widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     email = forms.EmailField(label='Email', 
-                               widget=forms.EmailInput(attrs={'class': 'form-input'}))
+                               widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    first_name = forms.CharField(label='Имя',
+                               widget=forms.TextInput(attrs={'class': 'form-control'}))
+    last_name = forms.CharField(label='Фамилия',
+                               widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model = get_user_model()
         fields = ['username', 'password', 'confirm_password', 'email', 'first_name', 'last_name']

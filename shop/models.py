@@ -86,13 +86,35 @@ class Order(models.Model):
     )
     work_status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='new')
     created_at = models.DateTimeField(auto_now_add=True)
-
+    @property
+    def status(self):
+        if self.work_status == 'new':
+            return 'Новый, ожидает оплаты'
+        elif self.work_status == 'in_progress':
+            return 'В процессе'
+        elif self.work_status == 'completed':
+            return 'Выполнен'
+        elif self.work_status == 'cancelled':
+            return 'Отменён'
+    @property
+    def color(self):
+        if self.colored == 'black_white':
+            return 'Ч/Б'
+        elif self.colored == 'color':
+            return 'Цветное'
     def __str__(self): 
         return f'Order {self.order_id} for {self.user.username}'
 
     def get_total_cost(self):
         return self.amount * self.cost
     
+class Bill(models.Model):
+    bill_id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    file = models.FileField(upload_to='bills/')
+    created_at = models.DateTimeField(auto_now_add=True)
+    order = models.ManyToManyField('Order')
+    status = models.CharField(max_length=20, default='new')
 class Notification(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()

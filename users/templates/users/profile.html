@@ -76,7 +76,7 @@
                       <tr>
                         <td class="bill-name">{{ bill.bill_id }}</td>
                         <td class="bill-name">{{ bill.created_at }}</td>                        
-                        <td><a href="{{ bill.file }}">Чек</a></td>
+                        <td><a href="{{ bill.file.url }}">Чек</a></td>
                         <td>{{bill.billstatus}}</td>
                       </tr>
                       {% endfor %}

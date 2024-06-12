@@ -40,8 +40,10 @@ def registration(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.set_password(form.cleaned_data['password'])
+            user.set_password(form.cleaned_data['password'])       
+            user.save()
             return HttpResponseRedirect(reverse('users:login'))
+        
     else:
         form = RegistrationForm()
     return render(request, 'users/registration.html', {'form': form})

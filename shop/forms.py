@@ -16,13 +16,13 @@ class BlankForm(forms.ModelForm):
     PAPER_TYPE_CHOICES = [
         (80, '80 г/м²'),
     ]
-    format = forms.ChoiceField(choices=FORMAT_CHOICES)
-    colored = forms.ChoiceField(choices=COLORED_CHOICES)
-    sides = forms.ChoiceField(choices=SIDES_CHOICES)
-    paper_type = forms.ChoiceField(choices=PAPER_TYPE_CHOICES)
-    amount = forms.IntegerField(initial=1, validators=[MinValueValidator(1)])
-    extra_info = forms.CharField(required=False)
-    file = forms.FileField(required=True)
+    format = forms.ChoiceField(label='Формат', choices=FORMAT_CHOICES)
+    colored = forms.ChoiceField(label='Цвет', choices=COLORED_CHOICES)
+    sides = forms.ChoiceField(label='Стороны', choices=SIDES_CHOICES)
+    paper_type = forms.ChoiceField(label='Бумага', choices=PAPER_TYPE_CHOICES)
+    amount = forms.IntegerField(label='Количество', initial=1, validators=[MinValueValidator(1)])
+    extra_info = forms.CharField(label='Доп. информация', required=False)
+    file = forms.FileField(label='Файл', required=True)
 
     class Meta:
         model = Cart
@@ -53,13 +53,13 @@ class BookletForm(forms.ModelForm):
     PAPER_TYPE_CHOICES = [
         (120, '120 г/м²'),
     ]
-    format = forms.ChoiceField(choices=FORMAT_CHOICES)
-    colored = forms.ChoiceField(choices=COLORED_CHOICES)
-    sides = forms.ChoiceField(choices=SIDES_CHOICES)
-    paper_type = forms.ChoiceField(choices=PAPER_TYPE_CHOICES)
-    amount = forms.IntegerField(initial=1)
-    extra_info = forms.CharField(required=False)
-    file = forms.FileField(required=True)
+    format = forms.ChoiceField(label='Формат', choices=FORMAT_CHOICES)
+    colored = forms.ChoiceField(label='Цвет', choices=COLORED_CHOICES)
+    sides = forms.ChoiceField(label='Стороны', choices=SIDES_CHOICES)
+    paper_type = forms.ChoiceField(label='Бумага', choices=PAPER_TYPE_CHOICES)
+    amount = forms.IntegerField(label='Количество', initial=1,  validators=[MinValueValidator(1)])
+    extra_info = forms.CharField(label='Доп. информация', required=False)
+    file = forms.FileField(label='Файл', required=True)
 
     class Meta:
         model = Cart
@@ -92,13 +92,13 @@ class FlyerForm(forms.ModelForm):
     PAPER_TYPE_CHOICES = [
         (90, '90 г/м²'),
     ]
-    format = forms.ChoiceField(choices=FORMAT_CHOICES)
-    colored = forms.ChoiceField(choices=COLORED_CHOICES)
-    sides = forms.ChoiceField(choices=SIDES_CHOICES)
-    paper_type = forms.ChoiceField(choices=PAPER_TYPE_CHOICES)
-    amount = forms.IntegerField(initial=1)
-    extra_info = forms.CharField(required=False)
-    file = forms.FileField(required=True)
+    format = forms.ChoiceField(label='Формат', choices=FORMAT_CHOICES)
+    colored = forms.ChoiceField(label='Цвет', choices=COLORED_CHOICES)
+    sides = forms.ChoiceField(label='Стороны', choices=SIDES_CHOICES)
+    paper_type = forms.ChoiceField(label='Бумага', choices=PAPER_TYPE_CHOICES)
+    amount = forms.IntegerField(label='Количество', initial=1, validators=[MinValueValidator(1)])
+    extra_info = forms.CharField(label='Доп. информация', required=False)
+    file = forms.FileField(label='Файл', required=True)
 
     class Meta:
         model = Cart
@@ -131,13 +131,13 @@ class LeafletForm(forms.ModelForm):
         (90, '90 г/м²'),
         (120, '120 г/м²'),
     ]
-    format = forms.ChoiceField(choices=FORMAT_CHOICES)
-    colored = forms.ChoiceField(choices=COLORED_CHOICES)
-    sides = forms.ChoiceField(choices=SIDES_CHOICES)
-    paper_type = forms.ChoiceField(choices=PAPER_TYPE_CHOICES)
-    amount = forms.IntegerField(initial=1, validators=[MinValueValidator(1)])
-    extra_info = forms.CharField(required=False)
-    file = forms.FileField(required=True)
+    format = forms.ChoiceField(label='Формат', choices=FORMAT_CHOICES)
+    colored = forms.ChoiceField(label='Цвет', choices=COLORED_CHOICES)
+    sides = forms.ChoiceField(label='Стороны',choices=SIDES_CHOICES)
+    paper_type = forms.ChoiceField(label='Бумага', choices=PAPER_TYPE_CHOICES)
+    amount = forms.IntegerField(label='Количество', initial=1, validators=[MinValueValidator(1)])
+    extra_info = forms.CharField(label='Доп. информация',required=False)
+    file = forms.FileField(label='Файл', required=True)
 
     class Meta:
         model = Cart
@@ -169,13 +169,13 @@ class PosterForm(forms.ModelForm):
     PAPER_TYPE_CHOICES = [
         (120, '120 г/м²'),
     ]
-    format = forms.ChoiceField(choices=FORMAT_CHOICES)
-    colored = forms.ChoiceField(choices=COLORED_CHOICES)
-    sides = forms.ChoiceField(choices=SIDES_CHOICES)
-    paper_type = forms.ChoiceField(choices=PAPER_TYPE_CHOICES)
-    amount = forms.IntegerField(initial=1, validators=[MinValueValidator(1)])
-    extra_info = forms.CharField(required=False)
-    file = forms.FileField(required=True)
+    format = forms.ChoiceField(label='Формат', choices=FORMAT_CHOICES)
+    colored = forms.ChoiceField(label='Цвет', choices=COLORED_CHOICES)
+    sides = forms.ChoiceField(label='Стороны',choices=SIDES_CHOICES)
+    paper_type = forms.ChoiceField(label='Бумага', choices=PAPER_TYPE_CHOICES)
+    amount = forms.IntegerField(label='Количество', initial=1, validators=[MinValueValidator(1)])
+    extra_info = forms.CharField(label='Доп. информация', required=False)
+    file = forms.FileField(label='Файл', required=True)
 
     class Meta:
         model = Cart

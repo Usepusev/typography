@@ -9,11 +9,13 @@
                     <div class="col-lg-5">
                         <div class="intro-excerpt">
                             <h1>Профиль</h1>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        
-                    </div>
+                            <h2 class="text-white">{{user.username}}: {{user.first_name}} {{user.last_name}}</h2>
+                            <form method="POST" action="logout">
+                              {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-light text-white bg-dark">Выход</button>
+                          </form>
+                          </div>
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -27,6 +29,7 @@
                 <table class="table">
                   <thead>
                     <tr>
+                      <th class="product-id">ID</th>
                       <th class="product-name">Услуга</th>
                       <th class="product-format">Формат</th>
                       <th class="product-color">Цвет</th>
@@ -41,6 +44,7 @@
                   <tbody>
                     {% for order in order_items %}
                     <tr>
+                      <td class="product-id">{{ order.order_id }}</td>                      
                       <td class="product-name">{{ order.product_name }}</td>
                       <td class="product-format">{{ order.format }}</td>
                       <td class="product-color">{{ order.color }}</td>

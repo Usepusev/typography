@@ -69,7 +69,7 @@
     <footer class="footer-section bg-light mt-5">
 			<div class="container relative">
 
-				<div class="sofa-img">
+				<div class="printer-img">
 					<img src="{% static 'images/printer2.png' %}" alt="Image" class="img-fluid">
 				</div>
 
@@ -116,7 +116,13 @@
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
 									<li><a href="/contact">Поддержка</a></li>
-									<li><a href="/cart">Корзина</a></li>
+									<li><a href="
+										{% if not request.user.is_authenticated %}
+											/users/login
+											{% else %}
+											/cart
+											{% endif %}
+											">Корзина</a></li>
 								</ul>
 							</div>
 						</div>

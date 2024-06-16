@@ -581,12 +581,12 @@ a {
         font-size: 14px; }
     .footer-section .subscription-form .btn {
       border-radius: 10px !important; }
-  .footer-section .sofa-img {
+  .footer-section .printer-img {
     position: absolute;
     top: -200px;
     z-index: 1;
     right: 0; }
-    .footer-section .sofa-img img {
+    .footer-section .printer-img img {
       max-width: 380px; }
   .footer-section .links-wrap {
     margin-top: 0px; }
